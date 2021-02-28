@@ -1,0 +1,20 @@
+//
+//  CustomSwipesUIImageView.swift
+//  CRUD
+//
+//  Created by Дмитрий Кондратьев on 06.11.2020.
+//
+
+import UIKit
+
+class CustomSwipesUIImageView: UIImageView {
+
+    /*
+    // Only override draw() if you perform custom drawing.
+    // An empty implementation adversely affects performance during animation.
+    override func draw(_ rect: CGRect) {
+        // Drawing code
+    }
+    */
+
+}
