@@ -67,7 +67,7 @@ class NewPostViewController: UIViewController, UINavigationControllerDelegate {
         AF.upload(multipartFormData: { multipartFormData in
             multipartFormData.append(imageData, withName: "upload_image", fileName: "upload.jpg", mimeType: "image/jpg")
             multipartFormData.append(dataJson, withName: "json", mimeType: "application/json")
-        }, to: "http://localhost/api/posts", headers: headers)
+        }, to: globalURL+"/api/posts", headers: headers)
             .responseDecodable(of: Posts.self) { response in
                 debugPrint(response)
             }

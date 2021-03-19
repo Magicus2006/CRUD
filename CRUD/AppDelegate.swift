@@ -8,6 +8,10 @@
 import UIKit
 import CoreData
 
+
+//var globalURL: String = "http://192.168.88.61"
+var globalURL: String = "http://127.0.0.1"
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

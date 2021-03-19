@@ -12,7 +12,8 @@ class MenuViewController: UIViewController {
     var menu:[(menuName: String, action: ()->Void)] = []
     
     @IBOutlet weak var tableView: UITableView!
-    
+    weak var delegate: ContenerViewController?
+    var isCheckbox: Bool = false
     
     
     override func viewDidLoad() {
@@ -20,11 +21,13 @@ class MenuViewController: UIViewController {
         // Do any additional setup after loading the view.
        
         menu.append((menuName: "Профиль",action: profile))
+        menu.append((menuName: "Мои посты",action: profile))
+        menu.append((menuName: "Изменить",action: changePost))
+        menu.append((menuName: "Удалить",action: deletePost))
         menu.append((menuName: "Выход",action: logout))
-        //menu.append((menuName: "Меню3",action: menu3))
+        //
         //menu.append((menuName: "Меню4",action: menu4))
         
-        print(menu.count)
         configureTableView()
         
     }
@@ -39,13 +42,25 @@ class MenuViewController: UIViewController {
     func logout() {
         UserDefaults.standard.set(false, forKey: "LOGGED_IN")
         UserDefaults.standard.set("", forKey: "TOKEN")
+        UserDefaults.standard.set(0, forKey: "USER_ID")
         self.performSegue(withIdentifier: "logout", sender: self)
     }
     func profile() {
         self.performSegue(withIdentifier: "profile", sender: self)
     }
-    func menu3() {
-        print("Меню3")
+    func deletePost() {
+        isCheckbox = !isCheckbox
+        delegate?.setCheckboxPostTableView(isCheckbox: isCheckbox)
+        delegate?.showHiddenMenu()
+        delegate?.deleteButtomItemOutlet.title = "Удалить"
+        delegate?.actionButtonItemType = .delete
+    }
+    func changePost() {
+        isCheckbox = !isCheckbox
+        delegate?.setCheckboxPostTableView(isCheckbox: isCheckbox)
+        delegate?.showHiddenMenu()
+        delegate?.deleteButtomItemOutlet.title = "Изменить"
+        delegate?.actionButtonItemType = .change
     }
     func menu4() {
         print("Меню4")

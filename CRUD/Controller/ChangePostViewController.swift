@@ -9,12 +9,20 @@ import UIKit
 
 class ChangePostViewController: UIViewController {
 
+    @IBOutlet weak var contentTextField: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        configuradeView()
     }
     
+    func configuradeView() {
+        contentTextField.layer.borderColor = UIColor.systemGray5.cgColor
+        contentTextField.layer.borderWidth = 1.0
+        contentTextField.layer.cornerRadius = 5.0
+    }
 
     /*
     // MARK: - Navigation

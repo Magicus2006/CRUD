@@ -544,7 +544,7 @@ Authorization - Bearer token<br>
 ```
     {
        "success": true,
-        "data": "comment": {
+        "data": { "comment": {
                 "id": 34,
                 "text": "Новый текст комментарий",
                 "post_id": 35,
